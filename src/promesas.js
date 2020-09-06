@@ -35,11 +35,11 @@ function resolver(producto, pedido) {
                 resolve("El producto más pedido es: " + maxProd + " con: "+ max + " Pedidos");
             }
             else {
-                reject("Falló");
+                reject("rechazado");
             }
         }
-        req.onerror = () => {reject(Error("Error de conexión"))};
-        req2.onerror = () => { reject(Error("Error2"))}
+        req.onerror = () => {reject(Error("Error en productos"))};
+        req2.onerror = () => { reject(Error("Error en pedidos"))}
         req.send();
         req2.send()
     });

@@ -20,10 +20,10 @@ function resolver(producto, pedido) {
                 var max = 0;
                 var maxProd = "ninguno";
                 for (let i = 0; i < x.length; i++) {
-                    var idProducto = x[i].idProducto;
-                    var contador = 0;
+                    var idProducto = x[i].idproducto;
+                    let contador = 0;
                     for (let j = 0; j < y.length; j++) {
-                        if (y[j].idProducto == idProducto) {
+                        if (y[j].idproducto === idProducto) {
                             contador += parseInt(y[j].cantidad);
                             if (contador >= max) {
                                 max = contador;
@@ -32,7 +32,7 @@ function resolver(producto, pedido) {
                         }
                     }
                 }
-                resolve("El producto más pedido es: " + maxProd + "con: "+ max + " Pedidos");
+                resolve("El producto más pedido es: " + maxProd + " con: "+ max + " Pedidos");
             }
             else {
                 reject("Falló");
@@ -51,4 +51,3 @@ resolver(producto,pedido).then(function(respuesta){
         console.log(error);
     }
 )
-
